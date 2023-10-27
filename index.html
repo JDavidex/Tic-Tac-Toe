@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphism | Tic-Tac-Toe</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/d76991698b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="mode">
+        <input type="checkbox" class="powerOff">
+        <div class="container">
+            <h2>Tic-Tac-Toe</h2>
+            
+            <!-- Cross side -->
+            <div class="game">
+                <div class="drag">
+                    <div class="dragBox">
+                        <div class="cross" draggable="true" ondragstart="drag(event)" id="X1"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="cross" draggable="true" ondragstart="drag(event)" id="X2"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="cross" draggable="true" ondragstart="drag(event)" id="X3"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="cross" draggable="true" ondragstart="drag(event)" id="X4"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="cross" draggable="true" ondragstart="drag(event)" id="X5"></div>
+                    </div>
+                </div>
+
+                <!-- Board -->
+                <div class="board">
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+
+                <!-- Circle side -->
+                <div class="drag">
+                    <div class="dragBox">
+                        <div class="circle" draggable="true" ondragstart="drag(event)" id="O1"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="circle" draggable="true" ondragstart="drag(event)" id="O2"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="circle" draggable="true" ondragstart="drag(event)" id="O3"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="circle" draggable="true" ondragstart="drag(event)" id="O4"></div>
+                    </div>
+                    <div class="dragBox">
+                        <div class="circle" draggable="true" ondragstart="drag(event)" id="O5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reset -->
+            <button class="reset" onclick="resetGame()"><span>Reiniciar juego</span></button>
+        </div>
+    </section>
+    <!-- JS -->
+    <script src="assets/js/functions.js"></script>
+</body>
+
+</html>

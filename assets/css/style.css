@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;150;300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ebf5fc;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    -webkit-appearance: none;
+    background: #ebf5fc;
+    border-radius: 50%;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+input[type="checkbox"]::after {
+    content: '\f011';
+    font-family: fontAwesome;
+    font-size: 2em;
+    color: #cccccc;
+}
+
+input[type="checkbox"]:checked:after {
+    color: #15e38a;
+}
+
+input[type="checkbox"]:checked {
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1), inset -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5em;
+    color: #ebf5fc;
+    text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 1);
+}
+
+section.active h2 {
+    color: #32a3b1;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 0 50px;
+}
+
+.board .dropBox {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-right: 10px solid #ebf5fc;
+    border-bottom: 10px solid #ebf5fc;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 6px 6px 20px rgba(0, 0, 0, 0.1), -6px -6px 20px rgba(255, 255, 255, .1);
+}
+
+.board .dropBox:nth-child(3),
+.board .dropBox:nth-child(6),
+.board .dropBox:nth-child(9) {
+    border-right: none;
+}
+
+.board .dropBox:nth-child(7),
+.board .dropBox:nth-child(8),
+.board .dropBox:nth-child(9) {
+    border-bottom: none;
+}
+
+.board .dropBox div {
+    pointer-events: none;
+    scale: 1.5;
+}
+
+.drag {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 100px;
+    gap: 20px;
+    margin: 0 100px;
+    cursor: grab;
+}
+
+.drag .dragBox {
+    padding: 15px;
+    background: #ebf5fc;
+    box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*-----------------------------------------------------------------------
+* Cross "Square" version
+-----------------------------------------------------------------------*/
+
+/* .cross {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #ebf5fc;
+    box-shadow: -4px -4px 15px rgba(255, 255, 255, 1), 4px 4px 15px rgba(0, 0, 0, 0.1);
+} */
+
+/* .cross::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: #ebf5fc;
+    box-shadow: inset -4px -4px 15px rgba(255, 255, 255, 1), inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+} */
+
+/*-----------------------------------------------------------------------
+* Cross "X" version
+-----------------------------------------------------------------------*/
+
+.cross {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cross::before {
+    content: '\f00d';
+    font-family: fontAwesome;
+    min-height: 100%;
+    font-size: 5em;
+    color: #ebf5fc;
+    text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 1);
+}
+
+section.active .cross::before {
+    color: #2196f3;
+}
+
+.circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #ebf5fc;
+    border-radius: 50%;
+    box-shadow: -4px -4px 15px rgba(255, 255, 255, 1), 4px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section.active .circle {
+    background: #ff568f;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: #ebf5fc;
+    border-radius: 50%;
+    box-shadow: inset -4px -4px 15px rgba(255, 255, 255, 1), inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reset {
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    background: #ebf5fc;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.reset:hover {
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1), inset -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.reset span {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+section.active .reset span {
+    color: #5a84a2;
+}
+
+.reset:hover span {
+    transform: scale(0.98);
+}
+
+@media (max-width: 991px) {
+    .container {
+        gap: 0px;
+    }
+
+    .game {
+        flex-direction: column;
+    }
+
+    .drag {
+        flex-direction: row;
+        height: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    h2 {
+        display: none;
+    }
+
+    .board .dropBox {
+        width: 90px;
+        height: 90px;
+    }
+
+    .drag {
+        height: 100px;
+    }
+
+    .cross, .circle {
+        width: 15px;
+        height: 15px;
+    }
+
+    .circle::before {
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+    }
+
+    .cross::before {
+        font-size: 2em;
+    }
+
+    input[type="checkbox"] {
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    input[type="checkbox"]::after {
+        font-size: 1em;
+    }
+}
